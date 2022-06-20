@@ -16613,6 +16613,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 803857931}
+  - component: {fileID: 803857932}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -16634,6 +16635,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &803857932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803857930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36169a2d9ef4b0b46b91c9d3a5d79a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionLength: 2
+  _secondExplosion: 3
+  _layerMaskWall:
+    serializedVersion: 2
+    m_Bits: 64
+  _explodeObject: {fileID: 6925039200413049940, guid: 7a279ade885ac19479377ab68abac2ae, type: 3}
 --- !u!1001 &806233258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26100,6 +26119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _placeDropBomb: {fileID: 292536730}
   _bomb: {fileID: 1171494272401183475, guid: 5807dcbe80f595043badfce4032c4f51, type: 3}
+  _bombExplosion: {fileID: 803857932}
 --- !u!4 &1298066250 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4889916270699016, guid: 313ad0ef31f75b84f9f31c0528802fdd, type: 3}

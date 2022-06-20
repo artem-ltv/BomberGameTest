@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Bomb : MonoBehaviour
 {
-    [SerializeField] private float _delayExplosion;
+    public float DelayExplosion;
+
     [SerializeField] private float _moveSpeedToCenterGround;
 
     private Rigidbody _rigidbody;
@@ -15,14 +17,14 @@ public class Bomb : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.freezeRotation = true;
-        StartCoroutine(Explode(_delayExplosion));
+        StartCoroutine(Explode(DelayExplosion));
     }
 
     private void Update()
     {
-        if (isDrop)      
+        if (isDrop)   
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position , new Vector3(groundPosition.x, gameObject.transform.position.y, groundPosition.z), _moveSpeedToCenterGround * Time.deltaTime);
-        
+             
     }
 
     private void OnCollisionEnter(Collision collision)
