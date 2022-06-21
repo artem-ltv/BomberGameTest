@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed;
+    [SerializeField] private Animator _playerAnimator;
 
     private Rigidbody _rigidbody;
 
@@ -18,7 +19,9 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         Vector3 direction = new Vector3(-horizontal, 0f, -vertical);
-        //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * _rotationSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * _rotationSpeed);
         _rigidbody.velocity = Vector3.ClampMagnitude(direction, 1) * _moveSpeed;
+
+        _playerAnimator.SetFloat("MoveSpeed", Mathf.Abs(vertical + horizontal));
     }
 }
