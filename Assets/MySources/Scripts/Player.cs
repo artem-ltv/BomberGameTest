@@ -2,16 +2,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _health;
-
-    private void Update()
+    public void Die()
     {
-        if (_health <= 0)
-            Die();
-    }
-
-    private void Die()
-    {
-        //
+        Debug.Log("PlayerDie");
     }
 }

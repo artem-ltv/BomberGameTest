@@ -7,7 +7,7 @@ public class BombExplosion : MonoBehaviour
     [SerializeField] private float _explosionLength;
     [SerializeField] private float _secondExplosion;
     [SerializeField] private LayerMask _layerMaskWall;
-    [SerializeField] private GameObject _explodeObject;
+    [SerializeField] private GameObject _explosionObject;
 
     private List<Vector3> CellsForExplodeForward;
     private List<Vector3> CellsForExplodeBackward;
@@ -55,7 +55,7 @@ public class BombExplosion : MonoBehaviour
                     
                 foreach (var item in lineExplosion)
                 {
-                    GameObject objectExplosion = Instantiate(_explodeObject, item, Quaternion.identity);
+                    GameObject objectExplosion = Instantiate(_explosionObject, item, Quaternion.identity);
                     StartCoroutine(DeleteObjectsExplosion(objectExplosion));
                 }
             }
