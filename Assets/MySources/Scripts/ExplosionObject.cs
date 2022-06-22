@@ -1,11 +1,23 @@
+using System.Collections;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class ExplosionObject : MonoBehaviour
 {
-    private NavMeshObstacle navMeshObstacle;
+    [SerializeField] private ParticleSystem _explosionEffect;
+    [SerializeField] private float _delayDisableCollider;
+
+    private Collider _collider;
+
+    private void Start()
+    {
+        _collider = GetComponent<Collider>();
+        Instantiate(_explosionEffect, new Vector3(gameObject.transform.position.x, 2.1f, gameObject.transform.position.z), Quaternion.identity);
+        StartCoroutine(DisableCollider(_delayDisableCollider));
+    }
+
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.TryGetComponent(out Enemy enemy))
             enemy.Die();
 
@@ -13,9 +25,9 @@ public class ExplosionObject : MonoBehaviour
             player.Die();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private IEnumerator DisableCollider(float delay)
     {
-        if (collision.gameObject.TryGetComponent(out Enemy enemy))
-            Debug.Log("IsCollision");
-    }
+        yield return new WaitForSeconds(delay);
+        _collider.enabled = false;
+    } 
 }
