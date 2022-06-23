@@ -39,9 +39,7 @@ public class PauseMenu : MonoBehaviour
         ShowPausePannel(isPause, 1f, CursorLockMode.Locked);
     }
 
-    private void LoadMainMenu()
-    {
-        Debug.Log("MainMenu");
-        //SceneManager.LoadScene(0);
-    }
+    private void LoadMainMenu() =>
+        SceneManager.LoadScene(0);
+    
 }

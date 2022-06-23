@@ -14,6 +14,7 @@ public class WinningRoom : MonoBehaviour
         {
             ParticleSystem effect = Instantiate(_firework, _fireworkPoint.position, Quaternion.identity);
             effect.Play();
+            Destroy(effect, 6f);
             EnteringWinningRoom?.Invoke();
         }
     }
