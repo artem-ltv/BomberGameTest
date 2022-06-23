@@ -4,9 +4,13 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     public event UnityAction Dying;
+
+    [SerializeField] AudioSource _loseAudio;
+
     public void Die()
     {
         Dying?.Invoke();
+        _loseAudio.Play();
         Debug.Log("PlayerDie");
     }
 

@@ -9,6 +9,7 @@ public class Bomb : MonoBehaviour
     [SerializeField] private float _moveSpeedToCenterGround;
     [SerializeField] private ParticleSystem _fireEffect;
     [SerializeField] private Transform _fireWickPoint;
+    [SerializeField] private AudioSource _wickAudio;
 
     private Rigidbody _rigidbody;
     private Collider _collider;
@@ -19,6 +20,7 @@ public class Bomb : MonoBehaviour
 
     private void Start()
     {
+        _wickAudio.Play();
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.mass = 1;
         _collider = GetComponent<Collider>();

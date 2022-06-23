@@ -5,6 +5,7 @@ public class GameWinning : MonoBehaviour
     [SerializeField] private WinningRoom _winningRoom;
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] GameObject _winningPanel;
+    [SerializeField] private AudioSource _winningAudio;
 
     private Enemy[] _livingEnemies;
 
@@ -18,6 +19,7 @@ public class GameWinning : MonoBehaviour
     private void Winning()
     {
         _winningPanel.SetActive(true);
+        _winningAudio.Play();
         Cursor.lockState = CursorLockMode.None;
         Destroy(_enemySpawner);
         _livingEnemies = GameObject.FindObjectsOfType<Enemy>();

@@ -8,6 +8,7 @@ public class BombExplosion : MonoBehaviour
     [SerializeField] private float _secondExplosion;
     [SerializeField] private LayerMask _layerMaskWall;
     [SerializeField] private GameObject _explosionObject;
+    [SerializeField] private AudioSource _explosionAudio;
 
     private List<Vector3> CellsForExplodeForward;
     private List<Vector3> CellsForExplodeBackward;
@@ -30,6 +31,7 @@ public class BombExplosion : MonoBehaviour
         yield return new WaitForSeconds(bomb.DelayExplosion);
 
         lineExplosion = new List<Vector3>();
+        _explosionAudio.Play();
 
         for (int i = 2; i <= _explosionLength + 2; i += 4)
         {
