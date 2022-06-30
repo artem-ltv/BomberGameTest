@@ -14,9 +14,10 @@ public class BombExplosion : MonoBehaviour
     private List<Vector3> CellsForExplodeBackward;
     private List<Vector3> CellsForExplodeRight;
     private List<Vector3> CellsForExplodeLeft;
+    private float _explosionLengthUnit;
 
     private void Start() =>
-        _explosionLength *= 4f;
+        _explosionLengthUnit = _explosionLength * 4f;
     
     public void LaunchExplosion(Bomb bomb)
     {
@@ -33,7 +34,7 @@ public class BombExplosion : MonoBehaviour
         lineExplosion = new List<Vector3>();
         _explosionAudio.Play();
 
-        for (int i = 2; i <= _explosionLength + 2; i += 4)
+        for (int i = 2; i <= _explosionLengthUnit + 2; i += 4)
         {
             RaycastHit hit;
             Ray ray = new Ray(bomb.transform.position, direction);
