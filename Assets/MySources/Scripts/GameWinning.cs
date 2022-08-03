@@ -4,7 +4,7 @@ public class GameWinning : MonoBehaviour
 {
     [SerializeField] private WinningRoom _winningRoom;
     [SerializeField] private EnemySpawner _enemySpawner;
-    [SerializeField] GameObject _winningPanel;
+    [SerializeField] private GameObject _winningPanel;
     [SerializeField] private AudioSource _winningAudio;
 
     private Enemy[] _livingEnemies;
